@@ -12,16 +12,36 @@ const renderer      = new THREE.WebGLRenderer({
 });
 const scene         = new THREE.Scene();
 
+<<<<<<< HEAD
 // Create placeholder values with let to make variables global to use inside and outside resize listener function
 let camera, screenWidth, screenHeight, controls = 0
 >>>>>>> Stashed changes
+=======
+const renderer      = new THREE.WebGLRenderer({
+    canvas: document.querySelector('#bg'),
+});
+const scene         = new THREE.Scene();
+>>>>>>> f1ad9e3ba7612145b4ee382f17c0f9ca7cbf2532
 
+let camera = 0
 let screenWidth = 0
 let screenHeight = 0
+let controls = 0
+// Resize listener
+//---------------------------------------------------------------------------------------------------
+// Everything that should resize depending on screen should be in here
 function displayWindowSize(){
     screenWidth = document.documentElement.clientWidth;
     screenHeight = document.documentElement.clientHeight;
-    // console.log(h, w)
+    // Renderer and renderer dependencies
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(screenWidth, screenHeight);
+
+    // Camera and camera dependencies
+    camera        = new THREE.PerspectiveCamera(75, screenWidth / screenHeight, 0.1, 1000);
+    camera.position.setZ(30);
+    camera.position.setX(-3);
+    controls = new OrbitControls(camera, renderer.domElement);
 }
 <<<<<<< Updated upstream
 window.addEventListener("resize", displayWindowSize);
@@ -29,6 +49,7 @@ displayWindowSize()
 
 // Scene
 //---------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 const scene         = new THREE.Scene();
 const camera        = new THREE.PerspectiveCamera(75, screenWidth / screenHeight, 0.1, 1000);
 const renderer      = new THREE.WebGLRenderer({
@@ -43,6 +64,8 @@ camera.position.setX(-3);
 document.addEventListener("resize", displayWindowSize);
 displayWindowSize();
 >>>>>>> Stashed changes
+=======
+>>>>>>> f1ad9e3ba7612145b4ee382f17c0f9ca7cbf2532
 
 // Objects
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,7 +100,6 @@ scene.add(pointLight2)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 >>>>>>> Stashed changes
 
-const controls = new OrbitControls(camera, renderer.domElement);
 
 
 // Animation
