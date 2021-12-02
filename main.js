@@ -3,29 +3,36 @@
 import * as THREE from './three.js/build/three.module.js'; //Checka examples
 import { OrbitControls} from './three.js/examples/jsm/controls/OrbitControls.js'
 
+const renderer      = new THREE.WebGLRenderer({
+    canvas: document.querySelector('#bg'),
+});
+const scene         = new THREE.Scene();
 
+let camera = 0
 let screenWidth = 0
 let screenHeight = 0
+let controls = 0
+// Resize listener
+//---------------------------------------------------------------------------------------------------
+// Everything that should resize depending on screen should be in here
 function displayWindowSize(){
     screenWidth = document.documentElement.clientWidth;
     screenHeight = document.documentElement.clientHeight;
-    // console.log(h, w)
+    // Renderer and renderer dependencies
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(screenWidth, screenHeight);
+
+    // Camera and camera dependencies
+    camera        = new THREE.PerspectiveCamera(75, screenWidth / screenHeight, 0.1, 1000);
+    camera.position.setZ(30);
+    camera.position.setX(-3);
+    controls = new OrbitControls(camera, renderer.domElement);
 }
 window.addEventListener("resize", displayWindowSize);
 displayWindowSize()
 
 // Scene
 //---------------------------------------------------------------------------------------------------
-const scene         = new THREE.Scene();
-const camera        = new THREE.PerspectiveCamera(75, screenWidth / screenHeight, 0.1, 1000);
-const renderer      = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'),
-});
-
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(screenWidth, screenHeight);
-camera.position.setZ(30);
-camera.position.setX(-3);
 
 // Objects
 //---------------------------------------------------------------------------------------------------
@@ -49,7 +56,6 @@ scene.add(pointLight2)
 // Controls
 //---------------------------------------------------------------------------------------------------
 
-const controls = new OrbitControls(camera, renderer.domElement);
 
 
 // Animation
