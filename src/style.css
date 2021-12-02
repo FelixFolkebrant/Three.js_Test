@@ -10,8 +10,6 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
-<<<<<<< Updated upstream
-=======
 }
 #background{
     position: fixed;
@@ -20,14 +18,13 @@ canvas {
     left: 0;
     top: 0;
     opacity: 100%;
-    background: transparent url("./Assets/BG.png");
+    background: transparent url("../Assets/BG.png");
     background-size: cover;
 }
 #scrollArea{
     position: absolute;
     width: 100%;
     height: 1000vh;
-    /* background-image: url("./Assets/BG.svg"); */
 }
 
 
@@ -77,12 +74,16 @@ p{
 }
 #profile{
     position: relative;
+    content: url("../Assets/Profile.png");
     width: 100px;
     box-shadow: -4px 8px 9px rgba(0, 0, 0, 0.25);
+    transition: ease-in-out 0.5s;
 }
-#ProfileText{
+#profile:hover{
     position: relative;
-    font-size: 10px;
+    content: url("../Assets/Profile2.png");
+    width: 100px;
+    box-shadow: -4px 8px 9px rgba(0, 0, 0, 0.25);
 }
 
 .myButton {
@@ -108,5 +109,4 @@ p{
 	position:relative;
     top: -32%;
     transition: 0.1s ease-out;
->>>>>>> Stashed changes
 }
