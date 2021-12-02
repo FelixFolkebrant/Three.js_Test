@@ -1,5 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Libre+Franklin:wght@300;500&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    /* overflow-x: hidden;  */
+    color: #272E38;
+    transition: 0.1s ease-out;
+}
 canvas {
     position: fixed;
     top: 0;
     left: 0;
+<<<<<<< Updated upstream
+=======
+}
+#background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 100%;
+    background: transparent url("./Assets/BG.png");
+    background-size: cover;
+}
+#scrollArea{
+    position: absolute;
+    width: 100%;
+    height: 1000vh;
+    /* background-image: url("./Assets/BG.svg"); */
+}
+
+
+h1{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 100px;
+    letter-spacing: -7px;
+}
+h2{
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+p{
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+}
+#introLarge{
+    position: relative;
+    top: 10%;
+    left: 10%;
+    transition: 0.2s ease-in-out;
+}
+#introMid{
+    position: relative;
+    top: -5%;
+    left: 15%;
+    transition: 0.2s ease-in-out;
+}
+#introSmall{
+    position: relative;
+    top: -5%;
+    left: 15%;
+    width: 15%;
+    transition: 0.2s ease-in-out;
+}
+#profileHolder{
+    position: relative;
+    top: -18.5%;
+    left: 31%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.2s ease-in-out;
+}
+#profile{
+    position: relative;
+    width: 100px;
+    box-shadow: -4px 8px 9px rgba(0, 0, 0, 0.25);
+}
+#ProfileText{
+    position: relative;
+    font-size: 10px;
+}
+
+.myButton {
+    position: relative;
+	background-color:#ffffff;
+	border:none;
+	cursor:pointer;
+	color:#272E38;
+	font-family:'Libre Franklin', sans-serif;
+	font-size:17px;
+	padding:15px 31px;
+    top: -31%;
+    left: 15%;
+	text-decoration:none;
+    transition: ease-in-out 0.2s;
+    box-shadow: -4px 8px 9px rgba(0, 0, 0, 0.25);
+}
+.myButton:hover {
+	background-color:#272E38;
+    color:#ffffff;
+}
+.myButton:active {
+	position:relative;
+    top: -32%;
+    transition: 0.1s ease-out;
+>>>>>>> Stashed changes
 }
