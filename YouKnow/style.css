@@ -1,0 +1,44 @@
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+.page{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.hand{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    background-color: gray;
+    position: relative;
+    top: 100%;
+    height: 50%;
+}
+.cards{
+    width: 12%;
+    font-size: larger;
+    font-weight: 900;
+    color: white;
+    border-radius: 2px;
+    margin-left: 1%;
+}
+.currentcardholder{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    background-color: gray;
+    position: relative;
+    top: 50%;
+    height: 50%;
+}
