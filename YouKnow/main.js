@@ -100,7 +100,7 @@ function drawcard(){
     }
 }
 
-drawn = []
+let drawn = []
 function fulldraw(){
     while(true){
         r = drawcard();
@@ -137,37 +137,57 @@ function firstdraw(){
 hand = firstdraw()
 
 function firstcard(){
-    lastcard = fulldraw()
-    console.log(lastcard)
-    cardcolor   = lastcard[0]
-    cardvalue   = lastcard[1]
-    cardid      = lastcard[2]
+    while(true){
+        lastcard = fulldraw()
+        if(lastcard[2] < 100){
+            break
+        }
+    }
+    console.log("firstdraw",lastcard)
     var html_card = document.createElement("button");
-    html_card.innerHTML             = cardvalue;
-    html_card.id                    = cardid;
+    html_card.innerHTML             = lastcard[1];
+    html_card.id                    = "CurrentCard";
     html_card.className             = "cards";
-    html_card.style.backgroundColor = cardcolor
+    html_card.style.backgroundColor = lastcard[0]
     html_card.addEventListener("click", function() {
         console.log(lastcard[0], lastcard[1], lastcard[2])})
     html_hand = document.querySelector(".currentcardholder").appendChild(html_card);
 }
-firstdraw()
 
+function updatecurrent(newcolor,newvalue,newid){
+    console.log("Last Card",lastcard)
+    console.log("new",newcolor,newvalue,newid)
+    if(newcolor == lastcard[0]){
+        console.log("Correct Color")
+        document.getElementById("CurrentCard").innerHTML            = newvalue;
+        document.getElementById("CurrentCard").style.backgroundColor= newcolor;
+        document.getElementById(newid).remove();
+    }
+    else if(newvalue == lastcard[1]){
+        console.log("Corret Value")
+        document.getElementById("CurrentCard").innerHTML            = newvalue;
+        document.getElementById("CurrentCard").style.backgroundColor= newcolor;
+        document.getElementById(newid).remove();
+    }
+    lastcard = [newcolor,newvalue,newid]
+}
+
+
+firstcard()
 // HTML
 // -------------------------------------------------------------
 
 function showhand(){
     for(let x = 0; x < hand.length;x++){
-        cardcolor   = hand[x][0]
-        cardvalue   = hand[x][1]
-        cardid      = hand[x][2]
         var html_card = document.createElement("button");
-        html_card.innerHTML             = cardvalue;
-        html_card.id                    = cardid;
+        html_card.innerHTML             = hand[x][1];
+        html_card.id                    = hand[x][2];
         html_card.className             = "cards";
-        html_card.style.backgroundColor = cardcolor
+        html_card.style.backgroundColor = hand[x][0]
         html_card.addEventListener("click", function() {
-            console.log(hand[x][0], hand[x][1], hand[x][2])})
+            console.log(hand[x][0], hand[x][1], hand[x][2])
+            updatecurrent(hand[x][0], hand[x][1], hand[x][2])
+        })
         html_hand = document.querySelector(".hand").appendChild(html_card);
     }
 }
